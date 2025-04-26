@@ -3,8 +3,8 @@ local Clock = os.clock()
 local ValueText = "Value Is Now :"
 
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/drillygzzly/Roblox-UI-Libs/main/1%20Tokyo%20Lib%20(FIXED)/Tokyo%20Lib%20Source.lua"))({
-    cheatname = "Title Here", -- watermark text
-    gamename = "Title Here", -- watermark text
+    cheatname = "tralaleroHub", -- watermark text
+    gamename = "by Utinder", -- watermark text
 })
 
 library:init()
@@ -14,23 +14,29 @@ local Window1  = library.NewWindow({
     size = UDim2.new(0, 510, 0.6, 6
 )})
 
-local Tab1 = Window1:AddTab("  Tab1  ")
+local Tab1 = Window1:AddTab("  Main  ")
 local SettingsTab = library:CreateSettingsTab(Window1)
 
 --Tab1:SetText("Text")
 
-local Section1 = Tab1:AddSection("Section 1", 1)
+local Section1 = Tab1:AddSection("Farm", 1)
 --Section1:SetText("Text")
+getgenv().autosell = false
 
 Section1:AddToggle({
-    text = "Toggle1",
+    text = "Auto Bubble",
     state = false,
-    risky = true,
+    risky = false,
     tooltip = "tooltip1",
     flag = "Toggle_1",
     risky = false,
-    callback = function(v)
-        print(ValueText, v)
+    callback = function()
+            local args = {
+    [1] = "BlowBubble"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("Framework"):WaitForChild("Network"):WaitForChild("Remote"):WaitForChild("Event"):FireServer(unpack(args))
+
     end
 }):AddBind({
     enabled = true,
